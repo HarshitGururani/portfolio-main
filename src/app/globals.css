@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .nav-item {
+    @apply px-4 py-1.5 rounded-full text-white/70 antialiased text-sm font-semibold hover:bg-white/10 hover:text-white transition duration-300;
+  }
+  .hero-ring {
+    @apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply lg:max-w-5xl;
+  }
+}
+
+.block-container {
+  position: relative;
+  transition: 250ms;
+  perspective: 500px;
+}
+
+.block-container .btn-back {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: inherit;
+  height: inherit;
+  transition: 250ms;
+  transform-style: preserve-3d;
+  transform-origin: bottom right;
+  transform: rotateZ(15deg);
+  will-change: transform;
+  box-shadow: 10px 0 20px #e4e4e438;
+}
+
+.block-container .btn-front {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  background-color: white;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  transition: 250ms;
+  transform-style: preserve-3d;
+  transform-origin: top left;
+  overflow: hidden;
+}
+
+.block-container:hover > .btn-back {
+  transform: translateZ(20px) rotateZ(15deg) rotateX(-20deg) rotateY(-20deg);
+}
+
+.block-container:hover > .btn-front {
+  transform: translateZ(80px) translateY(-5px) rotateX(15deg) rotateY(15deg);
+}
