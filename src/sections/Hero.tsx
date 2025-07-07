@@ -3,9 +3,17 @@ import ArrowDown from "@/assets/icons/arrow-down.svg";
 import grainImage from "@/assets/images/grain.jpg";
 import memoJiImage from "@/assets/images/memoji-computer.png";
 import Image from "next/image";
-import { useRef } from "react";
+import { RefObject } from "react";
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  contactRef: RefObject<HTMLDivElement>;
+}
+
+export const HeroSection = ({ contactRef }: HeroSectionProps) => {
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="py-28 md:py-42 relative z-0 overflow-x-clip">
       <div
@@ -101,10 +109,14 @@ export const HeroSection = () => {
           {/* Buttons and Social Links */}
           <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-14 items-center mt-8 w-full">
             <div className="flex flex-col md:flex-row gap-4">
-              <button className="inline-flex items-center gap-2 border border-white/15 px-4 text-sm h-10 rounded-xl hover:bg-white/5 transition-colors">
-                <span className="font-semibold">Explore my Work</span>
+              <button
+                onClick={scrollToContact}
+                className="inline-flex items-center justify-center gap-2 border border-white/15 px-4 text-sm h-10 rounded-xl hover:bg-white/5 transition-colors"
+              >
+                <span className="font-semibold leading-none">Contact me</span>
                 <ArrowDown className="size-4" />
               </button>
+
               <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-10 px-4 rounded-xl hover:bg-white/90 transition-colors text-sm">
                 <svg
                   className="w-4 h-4"
@@ -142,7 +154,7 @@ export const HeroSection = () => {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/in/harshitgururani"
+                href="https://www.linkedin.com/in/harshit-gururani"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"

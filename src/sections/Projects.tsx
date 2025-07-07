@@ -1,47 +1,64 @@
 "use client";
 import { ArrowUpRight, Check } from "lucide-react";
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
-import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
+import darkSaasLandingPage from "@/assets/images/studymate.png";
+import lightSaasLandingPage from "@/assets/images/booking.png";
+import aiStartupLandingPage from "@/assets/images/smartcv.png";
 import Image from "next/image";
 import Link from "next/link";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
+    company: "Smart CV",
+    year: "2025",
+    title: "AI-Powered Resume Builder",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      {
+        title:
+          "Full-stack resume platform with live preview and PDF export (Next.js, PostgreSQL)",
+      },
+      {
+        title:
+          "AI-powered resume builder using OpenAI for summary and experience generation",
+      },
     ],
-    link: "https://youtu.be/4k7IdSLxh6w",
-    image: darkSaasLandingPage,
+    link: "https://smart-cv-ai-pi.vercel.app",
+    image: aiStartupLandingPage,
   },
+
   {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
+    company: "Booking.com",
+    year: "2024",
+    title: "Hotel Booking Platform",
     results: [
-      { title: "Boosted sales by 20%" },
-      { title: "Expanded customer reach by 35%" },
-      { title: "Increased brand awareness by 15%" },
+      {
+        title:
+          "Built a full-stack hotel booking platform with user listings, bookings, and JWT-based authentication",
+      },
+      {
+        title:
+          "Integrated Stripe for secure online payments, streamlining the end-to-end booking experience",
+      },
     ],
-    link: "https://youtu.be/7hi5zwO75yc",
+    link: "https://mern-booking-app-4z6n.onrender.com/",
     image: lightSaasLandingPage,
   },
   {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
+    company: "Study Mate",
+    year: "2024",
+    title: "Study Mate - BCA Study Platform",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      {
+        title:
+          "Integrated an AI-powered chatbot using OpenAI to assist BCA students with subject-specific queries in real-time",
+      },
+      {
+        title:
+          "Built a full-stack resource platform for BCA students to access notes, PYQs, and study material",
+      },
     ],
-    link: "https://youtu.be/Z7I5uSRHMHg",
-    image: aiStartupLandingPage,
+
+    link: "https://studymate-next.vercel.app/",
+    image: darkSaasLandingPage,
   },
 ];
 

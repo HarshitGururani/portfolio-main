@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Html from "@/assets/icons/html.svg";
 import Css from "@/assets/icons/css.svg";
 import Javascript from "@/assets/icons/javascript.svg";
@@ -60,6 +61,24 @@ const mobilePrioritySkills = new Set([
 ]);
 
 const Skills = () => {
+  const [showAllSkills, setShowAllSkills] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  useEffect(() => {
+    // Set initial window width
+    setWindowWidth(window.innerWidth);
+
+    // Add event listener for window resize
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="max-w-7xl mx-auto px-2 sm:pl-5 lg:px-16 py-12 flex flex-col mb-20 pb-0">
       <h3 className="inline-block text-3xl font-medium bg-gradient-to-r to-blue-300 from-emerald-500 tracking-wide uppercase bg-clip-text text-transparent text-center">
@@ -69,11 +88,13 @@ const Skills = () => {
       <div className="mt-16 flex flex-wrap gap-10 md:justify-center">
         {skills.map(({ Icon, name }) => {
           const isHiddenOnMobile = !mobilePrioritySkills.has(name);
+          const shouldShow =
+            !isHiddenOnMobile || showAllSkills || windowWidth >= 768;
 
           return (
             <div
               className={`block-container w-20 h-20 ${
-                isHiddenOnMobile ? "hidden md:block" : ""
+                shouldShow ? "" : "hidden"
               }`}
               key={name}
             >
@@ -84,6 +105,26 @@ const Skills = () => {
             </div>
           );
         })}
+      </div>
+
+      {/* Show More Button - Only visible on mobile when not all skills are shown */}
+      <div className="flex justify-center mt-8 md:hidden">
+        {!showAllSkills && (
+          <button
+            onClick={() => setShowAllSkills(true)}
+            className="px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 text-white rounded-lg font-medium hover:from-blue-600 hover:to-emerald-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            Show More Technologies
+          </button>
+        )}
+        {showAllSkills && (
+          <button
+            onClick={() => setShowAllSkills(false)}
+            className="px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white rounded-lg font-medium hover:from-gray-600 hover:to-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            Show Less
+          </button>
+        )}
       </div>
     </div>
   );

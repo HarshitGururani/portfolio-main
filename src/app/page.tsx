@@ -1,5 +1,6 @@
 "use client";
 
+import ContactSection from "@/sections/Contact";
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import ProjectsSection from "@/sections/Projects";
@@ -12,6 +13,7 @@ export default function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   return (
     <div>
@@ -24,7 +26,7 @@ export default function Home() {
         }}
       />
       <div ref={homeRef}>
-        <HeroSection />
+        <HeroSection contactRef={contactRef} />
       </div>
       <div ref={experienceRef}>
         <ExperienceSection />
@@ -34,6 +36,10 @@ export default function Home() {
       </div>
       <div ref={projectsRef}>
         <ProjectsSection />
+      </div>
+
+      <div ref={contactRef}>
+        <ContactSection />
       </div>
     </div>
   );

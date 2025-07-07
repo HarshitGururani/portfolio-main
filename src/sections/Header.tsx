@@ -33,7 +33,10 @@ export const Header = ({ refs }: HeaderProps) => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
     // Observe all sections
     Object.entries(refs).forEach(([section, ref]) => {
@@ -76,6 +79,14 @@ export const Header = ({ refs }: HeaderProps) => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => scrollToSection(refs.experience)}
+          className={getNavItemClass("experience")}
+        >
+          Experience
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
           onClick={() => scrollToSection(refs.skills)}
           className={getNavItemClass("skills")}
         >
@@ -88,14 +99,6 @@ export const Header = ({ refs }: HeaderProps) => {
           className={getNavItemClass("projects")}
         >
           Projects
-        </motion.button>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => scrollToSection(refs.experience)}
-          className={getNavItemClass("experience")}
-        >
-          Experience
         </motion.button>
       </nav>
     </motion.div>
