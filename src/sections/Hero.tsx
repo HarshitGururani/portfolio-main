@@ -117,7 +117,17 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
                 <ArrowDown className="size-4" />
               </button>
 
-              <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-10 px-4 rounded-xl hover:bg-white/90 transition-colors text-sm">
+              <button
+                onClick={() => {
+                  const link = document.createElement("a");
+                  link.href = "/harshit-resume.pdf";
+                  link.download = "Harshit_Gururani_Resume.pdf";
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+                className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-10 px-4 rounded-xl hover:bg-white/90 transition-colors text-sm"
+              >
                 <svg
                   className="w-4 h-4"
                   fill="none"
