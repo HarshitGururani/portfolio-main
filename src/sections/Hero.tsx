@@ -15,20 +15,20 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
   };
 
   return (
-    <div className="py-28 md:py-42 relative z-0 overflow-x-clip">
+    <div className="flex flex-col items-center justify-center relative z-0 overflow-x-clip h-screen">
       <div
         className="absolute inset-0 -z-30 opacity-5"
         style={{ backgroundImage: `url(${grainImage.src})` }}
       ></div>
 
       {/* Animated grid background */}
-      <div className="absolute inset-0 -z-20 opacity-10 pointer-events-none">
+      <div className="absolute inset-0 -z-20 opacity-5 dark:opacity-5 pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
             `,
             backgroundSize: "50px 50px",
             animation: "grid-move 20s linear infinite",
@@ -38,48 +38,48 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
 
       {/* Responsive floating code elements */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute md:top-20 top-10 md:left-10 left-4 text-blue-400/30 font-mono md:text-sm text-xs animate-float">
+        <div className="absolute md:top-20 top-10 md:left-10 left-4 text-blue-600/60 dark:text-blue-400/30 font-mono md:text-sm text-xs animate-float">
           React
         </div>
-        <div className="absolute md:top-32 top-20 md:right-16 right-6 text-green-400/30 font-mono md:text-sm text-xs animate-float-delayed">
+        <div className="absolute md:top-32 top-20 md:right-16 right-6 text-green-600/60 dark:text-green-400/30 font-mono md:text-sm text-xs animate-float-delayed">
           Node.js
         </div>
-        <div className="absolute md:bottom-40 bottom-24 md:left-20 left-6 text-purple-400/30 font-mono md:text-sm text-xs animate-float">
+        <div className="absolute md:bottom-40 bottom-24 md:left-20 left-6 text-purple-600/60 dark:text-purple-400/30 font-mono md:text-sm text-xs animate-float">
           useState
         </div>
-        <div className="absolute md:bottom-32 bottom-20 md:right-24 right-6 text-yellow-400/30 font-mono md:text-sm text-xs animate-float-delayed">
+        <div className="absolute md:bottom-32 bottom-20 md:right-24 right-6 text-yellow-600/60 dark:text-yellow-400/30 font-mono md:text-sm text-xs animate-float-delayed">
           express()
         </div>
-        <div className="absolute md:top-40 top-24 md:left-1/3 left-1/4 text-pink-400/30 font-mono md:text-sm text-xs animate-float">
+        <div className="absolute md:top-40 top-24 md:left-1/3 left-1/4 text-pink-600/60 dark:text-pink-400/30 font-mono md:text-sm text-xs animate-float">
           &lt;/&gt;
         </div>
-        <div className="absolute md:bottom-60 bottom-36 md:right-[25%] right-10 text-cyan-400/30 font-mono md:text-sm text-xs animate-float-delayed">
+        <div className="absolute md:bottom-60 bottom-36 md:right-[25%] right-10 text-cyan-600/60 dark:text-cyan-400/30 font-mono md:text-sm text-xs animate-float-delayed">
           MongoDB
         </div>
-        <div className="absolute md:top-60 top-36 md:left-32 left-8 text-orange-400/30 font-mono md:text-sm text-xs animate-float-delayed">
+        <div className="absolute md:top-60 top-36 md:left-32 left-8 text-orange-600/60 dark:text-orange-400/30 font-mono md:text-sm text-xs animate-float-delayed">
           API
         </div>
-        <div className="absolute md:bottom-48 bottom-28 md:right-12 right-4 text-sky-400/30 font-mono md:text-sm text-xs animate-float">
+        <div className="absolute md:bottom-48 bottom-28 md:right-12 right-4 text-sky-600/60 dark:text-sky-400/30 font-mono md:text-sm text-xs animate-float">
           .map()
         </div>
-        <div className="absolute md:top-16 top-8 md:right-32 right-8 text-emerald-400/30 font-mono md:text-sm text-xs animate-float">
+        <div className="absolute md:top-16 top-8 md:right-32 right-8 text-emerald-600/60 dark:text-emerald-400/30 font-mono md:text-sm text-xs animate-float">
           Next.js
         </div>
-        <div className="absolute md:bottom-20 bottom-10 md:left-16 left-4 text-red-400/30 font-mono md:text-sm text-xs animate-float-delayed">
+        <div className="absolute md:bottom-20 bottom-10 md:left-16 left-4 text-red-600/60 dark:text-red-400/30 font-mono md:text-sm text-xs animate-float-delayed">
           req.body
         </div>
-        <div className="absolute md:top-72 top-44 md:right-20 right-8 text-indigo-400/30 font-mono md:text-sm text-xs animate-float">
+        <div className="absolute md:top-72 top-44 md:right-20 right-8 text-indigo-600/60 dark:text-indigo-400/30 font-mono md:text-sm text-xs animate-float">
           useEffect
         </div>
-        <div className="absolute md:bottom-64 bottom-36 md:left-1/4 left-8 text-violet-400/30 font-mono md:text-sm text-xs animate-float-delayed">
+        <div className="absolute md:bottom-64 bottom-36 md:left-1/4 left-8 text-violet-600/60 dark:text-violet-400/30 font-mono md:text-sm text-xs animate-float-delayed">
           async
         </div>
       </div>
 
       {/* Glowing orbs */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-xl animate-pulse pointer-events-none"></div>
-      <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-green-500/15 to-blue-500/15 rounded-full blur-xl animate-pulse-slow pointer-events-none"></div>
-      <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-lg animate-pulse-delayed pointer-events-none"></div>
+      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-500/30 dark:from-blue-500/20 to-purple-500/30 dark:to-purple-500/20 rounded-full blur-xl animate-pulse pointer-events-none"></div>
+      <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-green-500/25 dark:from-green-500/15 to-blue-500/25 dark:to-blue-500/15 rounded-full blur-xl animate-pulse-slow pointer-events-none"></div>
+      <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-r from-purple-500/30 dark:from-purple-500/20 to-pink-500/30 dark:to-pink-500/20 rounded-full blur-lg animate-pulse-delayed pointer-events-none"></div>
 
       <div className="container z-50">
         <div className="flex flex-col items-center">
@@ -88,18 +88,18 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
             className="size-[100px]"
             alt="Person peeking from behind laptop"
           />
-          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg mt-4">
+          <div className="bg-gray-100 dark:bg-gray-950 border border-gray-300 dark:border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg mt-4">
             <div className="bg-green-500 size-2.5 rounded-full"></div>
-            <div className="text-sm font-semibold">
+            <div className="text-gray-900 dark:text-white text-sm font-semibold">
               Available for new projects
             </div>
           </div>
 
           <div className="max-w-lg lg:max-w-xl mx-auto">
-            <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
+            <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide text-gray-900 dark:text-white">
               Hi, I&apos;m Harshit Gururani
             </h1>
-            <p className="mt-4 text-center text-white/70 text-sm md:text-base">
+            <p className="mt-4 text-center text-gray-600 dark:text-white/70 text-sm md:text-base">
               Full-stack developer focused on building fast, scalable, and
               intuitive web applications. I prioritize clean architecture,
               smooth user experiences, and real-world impact.
@@ -111,7 +111,7 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
             <div className="flex flex-col md:flex-row gap-4">
               <button
                 onClick={scrollToContact}
-                className="inline-flex items-center justify-center gap-2 border border-white/15 px-4 text-sm h-10 rounded-xl hover:bg-white/5 transition-colors"
+                className="inline-flex items-center justify-center gap-2 border border-gray-300 dark:border-white/15 px-4 text-sm h-10 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 transition-colors"
               >
                 <span className="font-semibold leading-none">Contact me</span>
                 <ArrowDown className="size-4" />
@@ -126,7 +126,7 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
                   link.click();
                   document.body.removeChild(link);
                 }}
-                className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-10 px-4 rounded-xl hover:bg-white/90 transition-colors text-sm"
+                className="inline-flex items-center gap-2 border border-gray-900 dark:border-white bg-gray-900 dark:bg-white text-white dark:text-gray-900 h-10 px-4 rounded-xl hover:bg-gray-800 dark:hover:bg-white/90 transition-colors text-sm"
               >
                 <svg
                   className="w-4 h-4"
@@ -145,7 +145,7 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
               </button>
             </div>
 
-            <div className="hidden md:block h-8 w-px bg-white" />
+            <div className="hidden md:block h-8 w-px bg-gray-300 dark:bg-white" />
 
             {/* Social Links */}
             <div className="flex items-center gap-3">
@@ -153,10 +153,10 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
                 href="https://github.com/harshitgururani"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/20 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
               >
                 <svg
-                  className="w-5 h-5 text-white"
+                  className="w-5 h-5 text-gray-900 dark:text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -167,10 +167,10 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
                 href="https://www.linkedin.com/in/harshit-gururani"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
+                className="flex items-center justify-center w-10 h-10 rounded-xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/20 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
               >
                 <svg
-                  className="w-5 h-5 text-white"
+                  className="w-5 h-5 text-gray-900 dark:text-white"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >

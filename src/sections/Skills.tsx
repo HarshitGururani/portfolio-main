@@ -81,7 +81,7 @@ const Skills = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-2 sm:pl-5 lg:px-16 py-12 flex flex-col mb-20 pb-0">
-      <h3 className="inline-block text-3xl font-medium bg-gradient-to-r to-blue-300 from-emerald-500 tracking-wide uppercase bg-clip-text text-transparent text-center">
+      <h3 className="inline-block text-3xl font-medium bg-gradient-to-r to-blue-600 from-emerald-600 dark:to-blue-300 dark:from-emerald-500 tracking-wide uppercase bg-clip-text text-transparent text-center">
         Skills & Technologies
       </h3>
 
@@ -120,7 +120,7 @@ const Skills = () => {
         {showAllSkills && (
           <button
             onClick={() => setShowAllSkills(false)}
-            className="px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white rounded-lg font-medium hover:from-gray-600 hover:to-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="px-6 py-3 bg-gradient-to-r from-gray-500 to-gray-600 dark:from-gray-600 dark:to-gray-700 text-white rounded-lg font-medium hover:from-gray-600 hover:to-gray-700 dark:hover:from-gray-700 dark:hover:to-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             Show Less
           </button>

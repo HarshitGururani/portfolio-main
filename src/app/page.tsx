@@ -6,6 +6,7 @@ import { HeroSection } from "@/sections/Hero";
 import ProjectsSection from "@/sections/Projects";
 import Skills from "@/sections/Skills";
 import ExperienceSection from "@/sections/Tape";
+import { Footer } from "@/sections/Footer";
 import { useRef } from "react";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
           projects: projectsRef,
           skills: skillsRef,
           experience: experienceRef,
+          contact: contactRef,
         }}
       />
       <div ref={homeRef}>
@@ -41,6 +43,7 @@ export default function Home() {
       <div ref={contactRef}>
         <ContactSection />
       </div>
+      <Footer />
     </div>
   );
 }

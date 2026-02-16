@@ -3,29 +3,31 @@ import { Calendar, MapPin, Briefcase, ArrowRight } from "lucide-react";
 
 const experiences = [
   {
-    role: "Frontend Developer Intern",
+    role: "Frontend Developer",
+    company: "Prune.co",
+    location: "Noida, India",
+    duration: "Aug 2025 - Present",
+    type: "Full-time",
+    responsibilities: [
+      "Developing a scalable Control Panel with secure authentication and role-based access, projected to reduce manual tasks by ~87%",
+      "Built a role-based Partner Portal (Super Admin, Admin, Reseller) for secure user management and wallet handling",
+      "Implemented robust authentication flows, reducing login errors by ~45%",
+      "Collaborated with product and backend teams to optimize integrations and improve development speed",
+      "Designed and delivered secure, maintainable frontend architecture using Next.js and modern best practices",
+    ],
+  },
+  {
+    role: "Frontend Developer",
     company: "RegisterKaro",
     location: "Gurugram, India",
-    duration: "Feb 2025 - Present",
-    type: "Internship",
+    duration: "Feb 2025 - Aug 2025",
+    type: "Full-time",
     responsibilities: [
-      "Built landing pages with Next.js, increasing lead conversions by 12–15%",
-      "Created a dynamic Guides page, boosting organic traffic by 20%",
-      "Integrated Zoho Forms, improving qualified lead capture by 30%",
-      "Worked with backend team to consume REST APIs efficiently",
+      "Built and integrated a dynamic Guides page with backend APIs, increasing organic traffic by 20%",
+      "Collaborated with backend developers to design and consume REST APIs, reducing integration time by ~40%",
+      "Applied performance optimization techniques (code splitting, lazy loading), reducing page load time by ~35%",
       "Converted Figma designs into responsive UIs using Tailwind CSS and SCSS",
-      "Reduced page load times by ~35% with performance optimizations",
-    ],
-    technologies: [
-      "Next.js",
-      "React.js",
-      "JavaScript",
-      "Tailwind CSS",
-      "SCSS",
-      "Zoho Forms",
-      "REST APIs",
-      "Git",
-      "Postman",
+      "Improved SEO performance and enhanced overall Core Web Vitals",
     ],
   },
 ];
@@ -36,15 +38,15 @@ export default function ExperienceSection() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <span className="inline-block text-md font-medium bg-gradient-to-r to-blue-300 from-emerald-500 tracking-wide uppercase mb-8 bg-clip-text text-transparent sm:mb-4">
+          <span className="inline-block text-md font-medium bg-gradient-to-r to-blue-600 from-emerald-600 dark:to-blue-300 dark:from-emerald-500 tracking-wide uppercase mb-8 bg-clip-text text-transparent sm:mb-4">
             Work History
           </span>
 
-          <h2 className="text-3xl md:text-4xl font-light text-white mb-4 font-sans tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 dark:text-white mb-4 font-sans tracking-tight">
             Professional Experience
           </h2>
 
-          <p className="text-gray-400 max-w-xl mx-auto text-sm">
+          <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto text-sm">
             Gained hands-on experience by building production-ready features,
             improving UI performance, and collaborating with teams to deliver
             modern web applications.
@@ -54,54 +56,54 @@ export default function ExperienceSection() {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-2 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-200 via-blue-300 to-indigo-300 opacity-50 shadow-sm shadow-cyan-200/30"></div>
+          <div className="absolute left-2 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-500 dark:from-cyan-200 dark:via-blue-300 dark:to-indigo-300 opacity-60 dark:opacity-50 shadow-sm shadow-cyan-400/30 dark:shadow-cyan-200/30"></div>
           {experiences.map((experience, index) => (
             <div
               key={index}
               className="relative flex items-start mb-16 last:mb-0 "
             >
               {/* Timeline Dot */}
-              <div className="absolute left-[2px] md:left-[18px] w-4 h-4 bg-gradient-to-r from-cyan-300 to-blue-500 rounded-full z-10 shadow-lg shadow-cyan-400/50 border-2 border-slate-800"></div>
+              <div className="absolute left-[2px] md:left-[18px] w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-600 dark:from-cyan-300 dark:to-blue-500 rounded-full z-10 shadow-lg shadow-cyan-500/50 dark:shadow-cyan-400/50 border-2 border-white dark:border-slate-800"></div>
 
               {/* Content */}
-              <div className="ml-[30px] md:ml-20 bg-slate-800/90 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 w-full hover:bg-slate-800/95 hover:border-slate-600/50">
+              <div className="ml-[30px] md:ml-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border border-gray-200/50 dark:border-slate-700/50 rounded-2xl p-8 shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 w-full hover:bg-white/95 dark:hover:bg-slate-800/95 hover:border-gray-300/50 dark:hover:border-slate-600/50">
                 {/* Header */}
                 <div className="mb-6">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-700/50 text-slate-300 text-sm font-medium rounded-full border border-slate-600/50 shadow-sm">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-200/50 dark:bg-slate-700/50 text-gray-700 dark:text-slate-300 text-sm font-medium rounded-full border border-gray-300/50 dark:border-slate-600/50 shadow-sm">
                       <Briefcase className="w-3.5 h-3.5" />
                       {experience.type}
                     </span>
-                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-900/30 text-blue-300 text-sm font-medium rounded-full border border-blue-700/50 shadow-sm">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium rounded-full border border-blue-300/50 dark:border-blue-700/50 shadow-sm">
                       <Calendar className="w-3.5 h-3.5" />
                       {experience.duration}
                     </span>
-                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-900/30 text-emerald-300 text-sm font-medium rounded-full border border-emerald-700/50 shadow-sm">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-100/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-sm font-medium rounded-full border border-emerald-300/50 dark:border-emerald-700/50 shadow-sm">
                       <MapPin className="w-3.5 h-3.5" />
                       {experience.location}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                     {experience.role}
                   </h3>
 
-                  <p className="text-lg text-slate-300 font-semibold">
+                  <p className="text-lg text-gray-700 dark:text-slate-300 font-semibold">
                     {experience.company}
                   </p>
                 </div>
 
                 {/* Responsibilities */}
                 <div className="">
-                  <h4 className="text-base font-bold text-white mb-4 flex items-center gap-2">
+                  <h4 className="text-base font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                     Key Responsibilities
                     <ArrowRight className="w-4 h-4 text-cyan-400" />
                   </h4>
                   <ul className="space-y-3">
                     {experience.responsibilities.map((responsibility, idx) => (
                       <li key={idx} className="flex items-start gap-3 ">
-                        <div className="w-2 h-2 bg-white rounded-full mt-2.5 flex-shrink-0"></div>
-                        <span className="text-slate-300 leading-relaxed">
+                        <div className="w-2 h-2 bg-gray-900 dark:bg-white rounded-full mt-2.5 flex-shrink-0"></div>
+                        <span className="text-gray-700 dark:text-slate-300 leading-relaxed">
                           {responsibility}
                         </span>
                       </li>
