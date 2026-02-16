@@ -120,7 +120,7 @@ export const HeroSection = ({ contactRef }: HeroSectionProps) => {
               <button
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/harshit-resume.pdf";
+                  link.href = "/harshit_resume.pdf";
                   link.download = "Harshit_Gururani_Resume.pdf";
                   document.body.appendChild(link);
                   link.click();
