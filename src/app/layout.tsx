@@ -1,94 +1,169 @@
-import type { Metadata } from "next";
-import { Inter, Calistoga } from "next/font/google";
-import "./globals.css";
-import { twMerge } from "tailwind-merge";
-import { ThemeProvider } from "../contexts/ThemeContext";
+import "@/styles/globals.css"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-const calistoga = Calistoga({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: "400",
-});
+import type { Metadata, Viewport } from "next"
+import Script from "next/script"
+import { GoogleTagManager } from "@next/third-parties/google"
+import { NuqsAdapter } from "nuqs/adapters/next/app"
+import type { WebSite, WithContext } from "schema-dts"
+
+import { JSON_LD_ID, personJsonLd } from "@/config/json-ld"
+import { META_THEME_COLORS, SITE_INFO, X_HANDLE } from "@/config/site"
+import { fontVariables } from "@/lib/fonts"
+import { JsonLdScript } from "@/lib/json-ld"
+import { Providers } from "@/components/providers"
+import { USER } from "@/features/portfolio/data/user"
+
+function getWebSiteJsonLd(): WithContext<WebSite> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": JSON_LD_ID.website,
+    name: SITE_INFO.name,
+    url: SITE_INFO.url,
+    author: personJsonLd,
+  }
+}
+
+// Thanks @shadcn-ui, @tailwindcss
+const darkModeScript = String.raw`
+  try {
+    if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '${META_THEME_COLORS.dark}')
+    }
+  } catch (_) {}
+
+  try {
+    if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
+      document.documentElement.classList.add('os-macos')
+    }
+  } catch (_) {}
+`
 
 export const metadata: Metadata = {
-  title: "Harshit Gururani",
-  description:
-    "Harshit Gururani's Portfolio - Full Stack Developer specializing in React, Node.js, and modern web technologies",
-  keywords: [
-    "portfolio",
-    "developer",
-    "full stack",
-    "react",
-    "node.js",
-    "typescript",
+  metadataBase: new URL(SITE_INFO.url),
+  title: {
+    template: `%s – ${SITE_INFO.name}`,
+    default: `${USER.displayName} – ${USER.jobTitle}`,
+  },
+  description: SITE_INFO.description,
+  keywords: SITE_INFO.keywords,
+  authors: [
+    {
+      name: "ncdai",
+      url: SITE_INFO.url,
+    },
   ],
-  authors: [{ name: "Harshit Gururani" }],
-  creator: "Harshit Gururani",
+  creator: "ncdai",
   openGraph: {
-    type: "website",
+    siteName: SITE_INFO.name,
+    url: "/",
+    type: "profile",
     locale: "en_US",
-    url: "https://your-domain.com", // Replace with your actual domain
-    title: "Harshit Gururani - Full Stack Developer",
-    description:
-      "Harshit Gururani's Portfolio - Full Stack Developer specializing in React, Node.js, and modern web technologies",
-    siteName: "Harshit Gururani Portfolio",
+    firstName: USER.firstName,
+    lastName: USER.lastName,
+    username: USER.username,
+    gender: USER.gender,
     images: [
       {
-        url: "/twittercard.png", // This should be your Twitter card image
+        url: SITE_INFO.ogImage,
         width: 1200,
         height: 630,
-        alt: "Harshit Gururani - Full Stack Developer Portfolio",
+        alt: SITE_INFO.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Harshit Gururani - Full Stack Developer",
-    description:
-      "Harshit Gururani's Portfolio - Full Stack Developer specializing in React, Node.js, and modern web technologies",
-    images: ["/twittercard.png"], // This should be your Twitter card image
-    creator: "@yourtwitterhandle", // Replace with your Twitter handle
+    site: X_HANDLE,
+    creator: X_HANDLE,
+    images: [SITE_INFO.ogImage],
   },
-  robots: {
-    index: true,
-    follow: true,
+  icons: {
+    icon: [
+      {
+        url: "/favicon-32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/favicon.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: {
+      url: "/apple-touch-icon.png",
+      type: "image/png",
+      sizes: "180x180",
+    },
   },
-};
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: META_THEME_COLORS.light,
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
         <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{ __html: darkModeScript }}
+        />
+        {/*
+          Thanks @tailwindcss. We inject the script via the `<Script/>` tag again,
+          since we found the regular `<script>` tag to not execute when rendering a not-found page.
+         */}
+        <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
+        <script
+          type="text/javascript"
           dangerouslySetInnerHTML={{
             __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
-                  if (!theme && supportDarkMode) theme = 'dark';
-                  if (!theme) theme = 'light';
-                  document.documentElement.classList.add(theme);
-                } catch (e) {}
-              })();
+              try {
+                var value = localStorage.getItem('avatarLights');
+                document.documentElement.dataset.avatarLights = JSON.parse(value || '"on"');
+              } catch(_) {}
             `,
           }}
         />
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var value = localStorage.getItem('sidebarOpen');
+                document.documentElement.dataset.sidebarOpen = JSON.parse(value || 'true');
+              } catch(_) {}
+            `,
+          }}
+        />
+        <JsonLdScript data={getWebSiteJsonLd()} />
       </head>
-      <body
-        className={twMerge(
-          "bg-white dark:bg-gray-900 text-gray-900 dark:text-white antialiased font-sans transition-colors duration-300",
-          inter.variable,
-          calistoga.variable,
-        )}
-      >
-        <ThemeProvider>{children}</ThemeProvider>
+
+      {process.env.NEXT_PUBLIC_GTM_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+      )}
+
+      <body>
+        <Providers>
+          <NuqsAdapter>{children}</NuqsAdapter>
+        </Providers>
       </body>
     </html>
-  );
+  )
 }
