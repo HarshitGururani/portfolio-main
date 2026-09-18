@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  HUSKY = "0"
+  COREPACK_ENABLE_STRICT = "0"
+  NEXT_PUBLIC_GITHUB_CONTRIBUTIONS_API_URL = "https://github-contributions-api.jogruber.de/v4"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

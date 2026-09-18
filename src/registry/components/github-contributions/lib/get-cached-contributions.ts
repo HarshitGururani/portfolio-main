@@ -12,12 +12,16 @@ export const getCachedContributions = unstable_cache(
       process.env.NEXT_PUBLIC_GITHUB_CONTRIBUTIONS_API_URL ??
       "https://github-contributions-api.jogruber.de/v4"
 
-    const res = await fetch(`${apiUrl}/${username}?y=last`)
-    if (!res.ok) {
+    try {
+      const res = await fetch(`${apiUrl}/${username}?y=last`)
+      if (!res.ok) {
+        return []
+      }
+      const data = (await res.json()) as GitHubContributionsResponse
+      return data.contributions ?? []
+    } catch {
       return []
     }
-    const data = (await res.json()) as GitHubContributionsResponse
-    return data.contributions ?? []
   },
   ["github-contributions"],
   { revalidate: 86400 } // Cache for 1 day (86400 seconds)
