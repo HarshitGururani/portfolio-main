@@ -48,10 +48,10 @@ export const EXPERIENCES: Experience[] = [
         id: "1",
         title: "Frontend Developer",
         employmentPeriod: {
-          start: "02.2025",
+          start: "04.2025",
           end: "08.2025",
         },
-        employmentType: "Full-time",
+        employmentType: "Internship",
         icon: <CodeXmlIcon />,
         description: `- Developed high-converting landing pages using Next.js, contributing to a 12–15% increase in lead conversions.
 - Built and integrated a dynamic Guides page with backend APIs, increasing organic traffic by 20%.
