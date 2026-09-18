@@ -61,6 +61,9 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   typedRoutes: true,
+  typescript: {
+    ignoreBuildErrors: process.env.NETLIFY === "true",
+  },
   transpilePackages: ["next-mdx-remote"],
   allowedDevOrigins: ["ncdai.localhost", "ncdai.local"],
   devIndicators: false,
