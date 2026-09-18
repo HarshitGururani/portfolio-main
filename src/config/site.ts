@@ -1,3 +1,5 @@
+import type { Route } from "next"
+
 import type { NavItem } from "@/types/nav"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 import { USER } from "@/features/portfolio/data/user"
@@ -40,27 +42,27 @@ export const META_THEME_COLORS = {
 export const MAIN_NAV: NavItem[] = [
   {
     title: "About",
-    href: "/#hello",
+    href: "/#hello" as Route,
   },
   {
     title: "Experience",
-    href: "/#experience",
+    href: "/#experience" as Route,
   },
   {
     title: "Education",
-    href: "/#education",
+    href: "/#education" as Route,
   },
   {
     title: "Stack",
-    href: "/#stack",
+    href: "/#stack" as Route,
   },
   {
     title: "Projects",
-    href: "/#projects",
+    href: "/#projects" as Route,
   },
   {
     title: "Contact",
-    href: "/#contact",
+    href: "/#contact" as Route,
   },
 ]
 

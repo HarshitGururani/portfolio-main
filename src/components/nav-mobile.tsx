@@ -1,6 +1,7 @@
 "use client"
 
 import { useCallback, useState } from "react"
+import type { Route } from "next"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -14,7 +15,7 @@ import {
 } from "@/components/ui/popover"
 import { haptic } from "@/registry/lib/haptic"
 
-export function NavMobile({ items }: { items: NavItem[] }) {
+export function NavMobile<T extends Route>({ items }: { items: NavItem<T>[] }) {
   const [open, setOpen] = useState(false)
 
   const isDesktop = useMediaQuery("(min-width: 40rem)") // sm breakpoint

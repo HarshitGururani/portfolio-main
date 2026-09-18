@@ -1,16 +1,17 @@
 import React from "react"
+import type { Route } from "next"
 import Link from "next/link"
 
 import type { NavItem } from "@/types/nav"
 import { cn } from "@/lib/utils"
 
-export function Nav({
+export function Nav<T extends Route>({
   items,
   activeId,
   className,
   exactMatch = false,
 }: {
-  items: NavItem[]
+  items: NavItem<T>[]
   activeId?: string
   className?: string
   exactMatch?: boolean
