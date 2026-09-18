@@ -17,7 +17,7 @@ export const USER: User = {
   phoneNumberB64: "KzkxNzQxNzIyNzI1OA==", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
   emailB64: "aGFyc2hpdDE1Z2dAZ21haWwuY29t", // base64 encoded
   website: "https://harshit-gururani.netlify.app",
-  jobTitle: "Frontend Developer",
+  jobTitle: "Fullstack Developer",
   jobs: [
     {
       title: "Frontend Developer",

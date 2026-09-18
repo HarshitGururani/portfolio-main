@@ -49,11 +49,11 @@ export const metadata: Metadata = {
   keywords: SITE_INFO.keywords,
   authors: [
     {
-      name: "ncdai",
+      name: "harshit",
       url: SITE_INFO.url,
     },
   ],
-  creator: "ncdai",
+  creator: "harshit",
   openGraph: {
     siteName: SITE_INFO.name,
     url: "/",
@@ -66,9 +66,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: SITE_INFO.ogImage,
-        width: 1200,
-        height: 630,
+        width: 1672,
+        height: 940,
         alt: SITE_INFO.name,
+        type: "image/png",
       },
     ],
   },

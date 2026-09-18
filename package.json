@@ -1,24 +1,24 @@
 {
-  "name": "chanhdai.com",
+  "name": "Harshit",
   "version": "0.1.0",
   "description": "A pixel-perfect dev portfolio and shadcn registry.",
-  "homepage": "https://chanhdai.com",
+  "homepage": "http://harshit-gururani.netlify.app/",
   "license": "MIT",
   "author": {
-    "name": "Nguyen Chanh Dai",
-    "email": "dai@chanhdai.com",
-    "url": "https://github.com/ncdai"
+    "name": "Harshit Gururani",
+    "email": "harshit15gg@gmail.com",
+    "url": "http://github.com/HarshitGururani"
   },
   "contributors": [
     {
-      "name": "Nguyen Chanh Dai",
-      "email": "dai@chanhdai.com",
-      "url": "https://github.com/ncdai"
+      "name": "Harshit",
+      "email": "harshit15gg@gmail.com",
+      "url": "http://github.com/HarshitGururani"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncdai/chanhdai.com.git"
+    "url": "git+http://github.com/HarshitGururani"
   },
   "scripts": {
     "dev": "next dev",

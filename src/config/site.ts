@@ -2,9 +2,26 @@ import type { NavItem } from "@/types/nav"
 import { SOCIAL } from "@/features/portfolio/data/social-links"
 import { USER } from "@/features/portfolio/data/user"
 
+function getSiteUrl() {
+  const fromEnv = process.env.NEXT_PUBLIC_APP_URL
+  const raw =
+    fromEnv && !fromEnv.includes("chanhdai.com") ? fromEnv : USER.website
+  try {
+    const url = new URL(raw)
+    const isLocal =
+      url.hostname === "localhost" || url.hostname.endsWith(".localhost")
+    if (!isLocal && url.protocol === "http:") {
+      url.protocol = "https:"
+    }
+    return url.origin
+  } catch {
+    return USER.website
+  }
+}
+
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.NEXT_PUBLIC_APP_URL || "https://chanhdai.com",
+  url: getSiteUrl(),
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
@@ -12,7 +29,7 @@ export const SITE_INFO = {
 
 export const LICENSE = {
   name: "MIT License",
-  url: "https://github.com/ncdai/chanhdai.com/blob/main/LICENSE",
+  url: "",
 }
 
 export const META_THEME_COLORS = {
